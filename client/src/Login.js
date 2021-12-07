@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Container, Row, Form, Col, Button } from "react-bootstrap";
 
-
 function Login({ setCurrentUser }) {
-  
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -29,12 +27,12 @@ function Login({ setCurrentUser }) {
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
-          console.log(user)
+          console.log(user);
           setCurrentUser(user);
         });
       } else {
         res.json().then((errors) => {
-          console.log(errors)
+          console.log(errors);
           setErrors(errors);
         });
       }
@@ -44,35 +42,35 @@ function Login({ setCurrentUser }) {
   return (
     <Container>
       <Row>
-      <Col xs={6}>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group as={Col} >
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            id="username-input"
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </Form.Group>
+        <Col xs={6}>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group as={Col}>
+              <Form.Label>Username:</Form.Label>
+              <Form.Control
+                id="username-input"
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" >
-          <Form.Label>Password:</Form.Label>
+            <Form.Group className="mb-3">
+              <Form.Label>Password:</Form.Label>
 
-          <Form.Control
-            id="password-input"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </Form.Group>
+              <Form.Control
+                id="password-input"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        {/* {error.map((oneError) => console.log(oneError))} */}
-        <Button type="submit">Submit</Button>
-      </Form>
-      </Col>
+            {/* {error.map((oneError) => console.log(oneError))} */}
+            <Button type="submit">Submit</Button>
+          </Form>
+        </Col>
       </Row>
     </Container>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { BarChart,CartesianGrid,XAxis,YAxis,Tooltip, Legend,Bar} from 'recharts';
 
+import {LineChart, CartesianGrid, XAxis,YAxis,Tooltip, Legend, Line} from 'recharts';
 
 function DaysGraphs(){
 
@@ -24,17 +24,20 @@ function DaysGraphs(){
           distance: item.distance
         };
       });
-    console.log(dates)
+    console.log("Day graph",dates)
 
     return(
-        <BarChart width={730} height={250} data={dates}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="distance" fill="#8884d8" />
-         </BarChart>
+      <LineChart width={730} height={250} data={routes}
+      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="date" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Line type="monotone" dataKey="distance" stroke="#8884d8" />
+     
+    </LineChart>
+  
     )
 }
 
