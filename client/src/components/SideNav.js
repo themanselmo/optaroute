@@ -33,7 +33,7 @@ const SideNav = () => {
         onKeyDown={toggleDrawer(anchor, false)}
         >
         <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+            {['Home', 'Routes'].map((text, index) => (
             <ListItem button key={text}>
                 <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -44,7 +44,7 @@ const SideNav = () => {
         </List>
         <Divider />
         <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            {['Logout'].map((text, index) => (
             <ListItem button key={text}>
                 <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

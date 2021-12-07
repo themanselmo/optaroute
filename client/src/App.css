@@ -57,7 +57,19 @@
 }
 
 .Route-Card {
-  padding: 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
   background: orange;
   border-radius: 10px;
+}
+
+.Edit-Card input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
