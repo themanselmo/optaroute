@@ -2,24 +2,42 @@ import { useState } from "react"
 
 const RouteCard = ({ route, managing }) => {
     const [edit, setEdit] = useState(false)
+    const [formData, setFormData] = useState({
+        starting_point: route.starting_point,
+        destination: route.destination,
+        distance: route.distance,
+        date: route.date
+    })
 
     function handleEdit() {
         setEdit(!edit)
+        
     }
 
     function handleEditSubmit(e) {
         setEdit(!edit)
-        console.log("fetch update")
-        console.log(e.target)
+        console.log("fetch update with updatedRoute")
+        console.log(e)
+
+        const updatedRoute = {
+            starting_point: e.target[0].value,
+            destination: e.target[1].value,
+            distance: e.target[2].value,
+            date: e.target[3].value
+        }
+
+        setFormData(updatedRoute)
+        console.log(updatedRoute)
+
     }
 
     const Card = () => {
         return (
             <>
-                <p>From: {route.starting_point}</p>
-                <p>Destination: {route.destination}</p>
-                <p>Distance: {route.distance}</p>
-                <p>Date: {route.date}</p>
+                <p>From: {formData.starting_point}</p>
+                <p>Destination: {formData.destination}</p>
+                <p>Distance: {formData.distance}</p>
+                <p>Date: {formData.date}</p>
                 {
                     managing ? 
                         <>

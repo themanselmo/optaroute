@@ -1,6 +1,13 @@
+import { useState } from "react"
 
 
-const AddRouteForm = () => {
+const AddRouteForm = ({ handleAddRoute }) => {
+    const [formData, setFormData] = useState({
+        starting_point: "",
+        destination: "",
+        distance: "",
+        date: ""
+    })
 
     return (
         <div id="Add-Route-Form">
