@@ -13,7 +13,7 @@ const RoutesPage = () => {
     function handleManaging() {
         setManaging(!managing)
     }
-
+    
     const mockRoutes = [
         {
             starting_point: "Home", 
