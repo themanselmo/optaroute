@@ -22,8 +22,8 @@ const RouteCard = ({ route, managing }) => {
                 {
                     managing ? 
                         <>
-                        <button onClick={handleEdit}>Edit Route</button>
-                        <button>Delete Route</button>
+                            <button onClick={handleEdit}>Edit Route</button>
+                            <button>Delete Route</button>
                         </>
                         :
                         null
