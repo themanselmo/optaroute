@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+/* ---------------------------------------- */
+
+#Route-Page {
+
+  
+}
+
+#Routes-List {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
