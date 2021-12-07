@@ -1,7 +1,7 @@
 
-import RoutesPage from './components/RoutesPage';
+import './App.css';
+import Header from './components/Header';
 import { useState, useEffect } from "react";
-import "./App.css";
 import PageLogin from "./PageLogin";
 import DaysGraphs from "./DaysGraphs";
 import MonthGraps from "./MonthGraps";
@@ -25,6 +25,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <DaysGraphs />
       <MonthGraps />
     </div>
