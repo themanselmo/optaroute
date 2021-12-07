@@ -39,8 +39,12 @@
 
 /* ---------------------------------------- */
 
-#Route-Page {
+#Header {
+  background-color: orange;
+}
 
+#Routes-Page {
+  margin-top: 20px;
   
 }
 
@@ -50,4 +54,10 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.Route-Card {
+  padding: 10px;
+  background: orange;
+  border-radius: 10px;
 }
