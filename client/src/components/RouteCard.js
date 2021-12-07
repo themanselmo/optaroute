@@ -7,9 +7,10 @@ const RouteCard = ({ route, managing }) => {
         setEdit(!edit)
     }
 
-    function handleEditSubmit() {
+    function handleEditSubmit(e) {
         setEdit(!edit)
         console.log("fetch update")
+        console.log(e.target)
     }
 
     const Card = () => {
@@ -36,12 +37,12 @@ const RouteCard = ({ route, managing }) => {
     const EditCard = () => {
         return (
             <>
-                <form className="Edit-Card">
+                <form onSubmit={handleEditSubmit} className="Edit-Card">
                     <input defaultValue={route.starting_point}/>
-                    <input />
-                    <input />
-                    <input />
-                    <button onClick={handleEditSubmit}>Submit Edit</button>
+                    <input defaultValue={route.destination}/>
+                    <input defaultValue={route.distance}/>
+                    <input defaultValue={route.date}/>
+                    <button>Submit Edit</button>
                 </form>
             </>
         )
