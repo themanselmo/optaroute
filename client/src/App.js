@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import PageLogin from './PageLogin';
+import DaysGraphs from './DaysGraphs';
+import MonthGraps from './MonthGraps';
 
 function App() {
+
+  const[currentUser, setCurrentUser]=useState(null)
+ 
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) =>{ 
+        console.log("After we login", user)
+        setCurrentUser(user)});
+      
+      }
+    });
+  }, []);
+
+
+  if (!currentUser) return <PageLogin setCurrentUser={setCurrentUser} />;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  
+    <div>
+    <DaysGraphs/>
+    <MonthGraps/>
     </div>
+  
   );
 }
 
