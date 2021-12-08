@@ -118,3 +118,20 @@
   background-color: #ffdadb;
   margin-top: 10px;
 }
+#dayChart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 50vh;
+ 
+
+}
+#monthchart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 40vh;
+ 
+}

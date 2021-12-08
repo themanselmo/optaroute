@@ -27,16 +27,18 @@ function DaysGraphs(){
     console.log("Day graph",dates)
 
     return(
+      <div id="dayChart">
       <LineChart width={730} height={250} data={routes}
       margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="date" />
+      <YAxis label={{ value: 'distance km', angle: -90, position: 'insideLeft' }} />
       <YAxis />
       <Tooltip />
       <Legend />
       <Line type="monotone" dataKey="distance" stroke="#8884d8" />
-     
-    </LineChart>
+      </LineChart>
+      </div>
   
     )
 }
