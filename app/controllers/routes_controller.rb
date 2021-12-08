@@ -12,7 +12,7 @@ class RoutesController < ApplicationController
         if route.valid? 
             render json: route, status: :created
         else
-            render json: {error: route.errors.full_messages}, status: :unprocessable_entity
+            render json: {error: [route.errors.full_messages]}, status: :unprocessable_entity
         end
 
     end
@@ -24,10 +24,10 @@ class RoutesController < ApplicationController
         if route.valid?
             render json: route,status: :ok
         else
-            render json:{ error: route.errors.full_messages}, status: :unprocessable_entity
+            render json:{ error: [route.errors.full_messages]}, status: :unprocessable_entity
         end
         else
-            render json: {error: "Not found"}, status: :not_found
+            render json: {error: ["Not found"]}, status: :not_found
         end
     end
 
@@ -37,7 +37,7 @@ class RoutesController < ApplicationController
             route.destroy 
             head :no_content
         else
-            render json: {error: "Not found"}, status: :not_found
+            render json: {error: ["Not found"]}, status: :not_found
         end
     end
 

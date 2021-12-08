@@ -171,14 +171,17 @@ function MonthGraps() {
   console.log("New Array", distanceformonth(monthssum));
 
   return (
-    <BarChart width={730} height={250} data={distanceformonth(monthssum)}>
+    <div id="monthchart">
+    <BarChart width={730} height={250} data={distanceformonth(monthssum)} >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="month" />
+      <YAxis label={{ value: 'distance km', angle: -90, position: 'insideLeft' }} />
       <YAxis />
       <Tooltip />
       <Legend />
       <Bar dataKey="distance" fill="#8884d8" />
     </BarChart>
+    </div>
   );
 }
 

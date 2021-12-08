@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Form, Col, Button } from "react-bootstrap";
+import { Container, Row, Form, Col, Button, Alert} from "react-bootstrap";
 
 function Signup ({setCurrentUser}){
    const [formData,setFormData]= useState({
@@ -8,6 +8,7 @@ function Signup ({setCurrentUser}){
    })
 
    const[error,setErrors]=useState([])
+
 console.log("error", error)
 const handleChange= (e)=> {
     setFormData({
@@ -32,8 +33,7 @@ const handleSubmit = (e) => {
             });
         }else{
             res.json().then((errors)=>{
-                console.log(errors)
-                setErrors(errors)
+                setErrors(errors.errors)
             })
         }
     })
@@ -41,11 +41,10 @@ const handleSubmit = (e) => {
     
 
     return(
-        <Container>
-        <Row>
-        <Col xs={6}>
-        <Form   onSubmit={handleSubmit}>
-          <Form.Group as={Col}>
+        <div id="signin">
+        <h2>Sign Up</h2>
+        <Form id="form1"  onSubmit={handleSubmit}>
+          <Form.Group >
             <Form.Label>Username:</Form.Label>
             <Form.Control
               id="username-input"
@@ -56,7 +55,7 @@ const handleSubmit = (e) => {
             />
           </Form.Group>
   
-          <Form.Group className="mb-3" >
+          <Form.Group >
             <Form.Label>Password:</Form.Label>
   
             <Form.Control
@@ -68,12 +67,11 @@ const handleSubmit = (e) => {
             />
           </Form.Group>
   
-          {/* {error.map((oneError) => console.log(oneError))} */}
-          <Button type="submit">Submit</Button>
+          {error.map((err) => <Alert id="alert2" key={err}>{err}</Alert>)}
+
+          <Button variant="secondary" type="submit">Submit</Button>
         </Form>
-        </Col>
-        </Row>
-      </Container>
+       </div>
     )
 }
 
