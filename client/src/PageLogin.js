@@ -17,15 +17,15 @@ function PageLogin({ setCurrentUser }) {
               <Login setCurrentUser={setCurrentUser} />
               <p>
                 Don't have an account? &nbsp;
-                <Button onClick={() => setShowLogin(false)}>Sign Up</Button>
+                <Button variant="secondary" onClick={() => setShowLogin(false)}>Sign Up</Button>
               </p>
             </>
           ) : (
             <>
               <Signup setCurrentUser={setCurrentUser} />
-              <p>
+              <p id="p1">
                 Already have an account? &nbsp;
-                <Button color="secondary" onClick={() => setShowLogin(true)}>
+                <Button variant="secondary" onClick={() => setShowLogin(true)}>
                   Log In
                 </Button>
               </p>

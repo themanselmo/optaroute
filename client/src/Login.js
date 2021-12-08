@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Row, Form, Col, Button } from "react-bootstrap";
+import { Container, Row, Form, Col, Button, Alert } from "react-bootstrap";
 
 function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
@@ -33,18 +33,17 @@ function Login({ setCurrentUser }) {
       } else {
         res.json().then((errors) => {
           console.log(errors);
-          setErrors(errors);
+          setErrors(errors.errors);
         });
       }
     });
   };
 
   return (
-    <Container>
-      <Row>
-        <Col xs={6}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group as={Col}>
+    <div id="login">
+          <h2>Log In</h2>
+          <Form onSubmit={handleSubmit} id="form">
+            <Form.Group >
               <Form.Label>Username:</Form.Label>
               <Form.Control
                 id="username-input"
@@ -55,7 +54,7 @@ function Login({ setCurrentUser }) {
               />
             </Form.Group>
 
-            <Form.Group className="mb-3">
+            <Form.Group >
               <Form.Label>Password:</Form.Label>
 
               <Form.Control
@@ -67,12 +66,10 @@ function Login({ setCurrentUser }) {
               />
             </Form.Group>
 
-            {/* {error.map((oneError) => console.log(oneError))} */}
-            <Button type="submit">Submit</Button>
+            {error.map((err) => <Alert key={err} id="alert1">{err}</Alert>)}
+            <Button variant="secondary" type="submit">Submit</Button>
           </Form>
-        </Col>
-      </Row>
-    </Container>
+      </div>
   );
 }
 

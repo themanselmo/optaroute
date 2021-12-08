@@ -7,7 +7,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             render json: user, status: :created
         else
-            render json: {error: user.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
         end
 
     end
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         if user
             render json: user, status: :ok
         else
-            render json: {error: "not found"}, status: :not_found
+            render json: {error: ["Not found"]}, status: :not_found
         end
 
     end
