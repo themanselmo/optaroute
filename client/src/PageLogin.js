@@ -7,7 +7,7 @@ function PageLogin({ setCurrentUser }) {
   const [showLogin, setShowLogin] = useState(true);
 
   return (
-    <Container>
+    <Container >
       <Row>
         <Col xs={6}>
           <h1>OPTAROUTE</h1>
