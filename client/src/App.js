@@ -9,6 +9,8 @@ import RoutesPage from './components/RoutesPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [userRoutes, setUserRoutes] = useState([])
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -16,6 +18,7 @@ function App() {
         r.json().then((user) => {
           console.log("After we login", user);
           setCurrentUser(user);
+          getRoutes()
         });
       }
       else {
@@ -25,8 +28,15 @@ function App() {
     });
   }, []);
 
+  const getRoutes = () => {
+    fetch("/myroutes")
+    .then(r => r.json())
+    .then(data => console.log(data))
+  }
+
   if (!currentUser) return <PageLogin setCurrentUser={setCurrentUser} />;
 
+  // console.log(userRoutes)
   return (
     <div className="App">
       <Header setCurrentUser={setCurrentUser}/>

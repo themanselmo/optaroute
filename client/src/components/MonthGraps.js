@@ -13,7 +13,7 @@ function MonthGraps() {
   const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
-    fetch("/routes")
+    fetch("/myroutes")
       .then((res) => res.json())
       .then((routes) => {
         setRoutes(routes);

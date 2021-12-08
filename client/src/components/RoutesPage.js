@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import AddRouteForm from "./AddRouteForm"
 import RouteCard from "./RouteCard"
 
 const RoutesPage = () => {
     const [adding, setAdding] = useState(false)
     const [managing, setManaging] = useState(false)
+    const [userRoutes, setUserRoutes] = useState([])
 
     function handleAdding() {
         setAdding(!adding)
@@ -14,32 +15,14 @@ const RoutesPage = () => {
         setManaging(!managing)
     }
     
-    const mockRoutes = [
-        {
-            starting_point: "Home", 
-            destination: "Work",
-            distance: 50.5,
-            date: "2021-12-6"
-        },
-        {
-            starting_point: "Home", 
-            destination: "Work",
-            distance: 50.5,
-            date: "2021-12-6"
-        },
-        {
-            starting_point: "Home", 
-            destination: "Work",
-            distance: 50.5,
-            date: "2021-12-6"
-        },
-        {
-            starting_point: "Home", 
-            destination: "Work",
-            distance: 50.5,
-            date: "2021-12-6"
-        }
-    ]
+    useEffect(() => {
+        fetch("/myroutes")
+        .then(res=>res.json())
+        .then(routes=>{
+            setUserRoutes(routes)
+        })    
+    }, []);
+    
 
     const listRoutes = (routes) => {
         return routes.map(route => <RouteCard route={route} managing={managing}></RouteCard>)
@@ -52,7 +35,7 @@ const RoutesPage = () => {
             {adding ? <AddRouteForm /> : null}
             <h3>Routes:</h3>
             <div id="Routes-List">
-                {listRoutes(mockRoutes)}
+                {listRoutes(userRoutes)}
             </div>
         </div>
     )

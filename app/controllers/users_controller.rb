@@ -23,6 +23,16 @@ class UsersController < ApplicationController
 
     end
 
+    def my_routes
+        user = User.find_by(id: session[:user_id])
+        
+        if user 
+            render json: user.routes 
+        else
+            render json: {error:["Not found"]}, status: :not_found
+        end
+        
+    end
 
     private
 

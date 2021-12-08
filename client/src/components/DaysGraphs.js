@@ -9,7 +9,7 @@ function DaysGraphs(){
     // console.log(routes)
 
     useEffect(() => {
-        fetch("/routes")
+        fetch("/myroutes")
         .then(res=>res.json())
         .then(routes=>{
             setRoutes(routes)
