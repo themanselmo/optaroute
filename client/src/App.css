@@ -71,6 +71,10 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+#Graph-Page {
+  text-align: center;
+}
 #login{
   border: 2px solid #d3d3d3;
   border-radius: .5em;

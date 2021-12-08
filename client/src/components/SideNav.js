@@ -7,11 +7,13 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import CottageIcon from '@mui/icons-material/Cottage';
+import RouteIcon from '@mui/icons-material/Route';
+import LogoutIcon from '@mui/icons-material/Logout';
 import MailIcon from '@mui/icons-material/Mail';
 import DehazeIcon from '@mui/icons-material/Dehaze';
-import { Link, useNavigate } from 'react-router-dom'
 
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const SideNav = ({ setCurrentUser }) => {
@@ -48,7 +50,7 @@ const SideNav = ({ setCurrentUser }) => {
             <Link to={`/${text}`}>
                 <ListItem button key={text}>
                     <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    {index % 2 === 0 ? <CottageIcon /> : <RouteIcon />}
                     </ListItemIcon>
                     <ListItemText primary={text} />
                 </ListItem>
@@ -60,7 +62,7 @@ const SideNav = ({ setCurrentUser }) => {
             {['Logout'].map((text, index) => (
             <ListItem onClick={handleLogout} button key={text}>
                 <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <LogoutIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
             </ListItem>
