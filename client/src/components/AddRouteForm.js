@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 
-const AddRouteForm = ({ handleAddRoute }) => {
+const AddRouteForm = ({ addRoute }) => {
     const [formData, setFormData] = useState({
         starting_point: "",
         destination: "",
@@ -27,11 +27,11 @@ const AddRouteForm = ({ handleAddRoute }) => {
           }).then((res)=>{
               if(res.ok){
                   res.json().then((routes)=>{
-                      console.log(routes)
+                    addRoute(routes)
                   })
               }else{
                 res.json().then((errors) => {
-                  console.error(errors)
+                  console.error(errors.error)
                 });
             }
           });
