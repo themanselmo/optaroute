@@ -10,20 +10,31 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import DehazeIcon from '@mui/icons-material/Dehaze';
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useState } from 'react'
 
-const SideNav = () => {
+const SideNav = ({ setCurrentUser }) => {
     const [leftState, setLeftState] = useState({
         left: false,
     })
+
+    const navigate = useNavigate();
 
     const toggleDrawer = (anchor, isOpen) => (event) => {
         if(event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-
         setLeftState({...leftState, [anchor]: isOpen})
+    }
+
+    function handleLogout() {
+        fetch('/logout', {
+            method: "DELETE"
+        })
+        navigate("/")
+        setCurrentUser(null)
+        
     }
 
     const list = (anchor) => (
@@ -34,18 +45,20 @@ const SideNav = () => {
         >
         <List>
             {['Home', 'Routes'].map((text, index) => (
-            <ListItem button key={text}>
-                <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-            </ListItem>
+            <Link to={`/${text}`}>
+                <ListItem button key={text}>
+                    <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                </ListItem>
+            </Link>
             ))}
         </List>
         <Divider />
         <List>
             {['Logout'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem onClick={handleLogout} button key={text}>
                 <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>

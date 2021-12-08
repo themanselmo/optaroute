@@ -2,13 +2,13 @@
 import './App.css';
 import Header from './components/Header';
 import { useState, useEffect } from "react";
-import PageLogin from "./PageLogin";
-import DaysGraphs from "./DaysGraphs";
-import MonthGraps from "./MonthGraps";
+import PageLogin from "./components/PageLogin";
+import GraphPage from "./components/GraphPage";
+import { Routes, Route } from 'react-router-dom';
+import RoutesPage from './components/RoutesPage';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -18,6 +18,10 @@ function App() {
           setCurrentUser(user);
         });
       }
+      else {
+        console.log("User is null")
+        setCurrentUser(null)
+      }
     });
   }, []);
 
@@ -25,9 +29,12 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <DaysGraphs />
-      <MonthGraps />
+      <Header setCurrentUser={setCurrentUser}/>
+      <Routes>
+        <Route path="/" element={<GraphPage />} />
+        <Route path="/Home" element={<GraphPage />} />
+        <Route path="/Routes" element={<RoutesPage />}/>
+      </Routes>
     </div>
   );
 }

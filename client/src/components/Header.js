@@ -1,11 +1,11 @@
 import SideNav from "./SideNav"
 
-const Header = () => {
+const Header = ({ setCurrentUser }) => {
 
     return (
         <div id="Header">
             <h4>Optiroute</h4>
-            <SideNav />
+            <SideNav setCurrentUser={setCurrentUser}/>
         </div>
     )
 }
