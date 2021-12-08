@@ -7,8 +7,9 @@ class RoutesController < ApplicationController
     end 
 
     def create 
-        route = Route.create(route_params)
-
+        route = Route.new(route_params)
+        route[:user_id]=session[:user_id]
+        route.save;
         if route.valid? 
             render json: route, status: :created
         else
@@ -46,8 +47,8 @@ class RoutesController < ApplicationController
             :starting_point,
             :destination,
             :distance,
-            :date,
-            :user_id
+            :date
+    
         )
     end
 end

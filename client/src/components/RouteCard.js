@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const RouteCard = ({ route, managing }) => {
+const RouteCard = ({ route, managing , handleDelete}) => {
     const [edit, setEdit] = useState(false)
     const [formData, setFormData] = useState({
         starting_point: route.starting_point,
@@ -30,6 +30,16 @@ const RouteCard = ({ route, managing }) => {
         console.log(updatedRoute)
 
     }
+    
+    
+    const handleDeleteCard = (route) =>{
+        fetch(`/routes/${route.id}`,{
+        method: "DELETE"
+      }) 
+        .then((r) => r.json())
+        .then(handleDelete(route)) 
+   
+    }
 
     const Card = () => {
         return (
@@ -42,7 +52,7 @@ const RouteCard = ({ route, managing }) => {
                     managing ? 
                         <>
                             <button onClick={handleEdit}>Edit Route</button>
-                            <button>Delete Route</button>
+                            <button onClick={()=>handleDeleteCard(route)}>Delete Route</button>
                         </>
                         :
                         null

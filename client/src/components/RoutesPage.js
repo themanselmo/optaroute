@@ -23,16 +23,29 @@ const RoutesPage = () => {
         })    
     }, []);
     
+    const handleDelete = (itemToDelete) => {
+        const routesToRender = userRoutes.filter((item)=>item.id !== itemToDelete.id)
+        setUserRoutes(routesToRender)
+    }
+
+    const addRoute = (newRoute)=>{
+        setUserRoutes([...userRoutes, newRoute])
+
+    }
 
     const listRoutes = (routes) => {
-        return routes.map(route => <RouteCard route={route} managing={managing}></RouteCard>)
+        return routes.map(route => <RouteCard handleDelete={handleDelete} route={route} managing={managing}></RouteCard>)
     }
+
+  
+
+ 
 
     return (
         <div id="Routes-Page">
             <button onClick={handleAdding}>{adding ? "Close" : "Add Route"}</button>
             <button onClick={handleManaging}>{managing? "Stop Managing" : "Manage Route"}</button>
-            {adding ? <AddRouteForm /> : null}
+            {adding ? <AddRouteForm addRoute={addRoute} /> : null}
             <h3>Routes:</h3>
             <div id="Routes-List">
                 {listRoutes(userRoutes)}
