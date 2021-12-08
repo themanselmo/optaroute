@@ -61,7 +61,7 @@ const AddRouteForm = ({ handleAddRoute }) => {
              id="distance"
              name="distance"
              value={formData.distance}
-             onChange= {formData}
+             onChange= {handleChange}
             placeholder="Distance"/>
 
             <label>Date</label>

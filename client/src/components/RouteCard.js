@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const RouteCard = ({ route, managing }) => {
+const RouteCard = ({ route, managing, handleUpdateRoute }) => {
     const [edit, setEdit] = useState(false)
     const [formData, setFormData] = useState({
         starting_point: route.starting_point,
@@ -11,7 +11,12 @@ const RouteCard = ({ route, managing }) => {
 
     function handleEdit() {
         setEdit(!edit)
-        
+    }
+
+    function handleFormChange(e) {
+        const name = e.target.name;
+		const value = e.target.value;
+		setFormData({ ...formData, [name]: value });
     }
 
     function handleEditSubmit(e) {
@@ -20,59 +25,49 @@ const RouteCard = ({ route, managing }) => {
         console.log(e)
 
         const updatedRoute = {
-            starting_point: e.target[0].value,
-            destination: e.target[1].value,
-            distance: e.target[2].value,
-            date: e.target[3].value
+            starting_point: formData.starting_point,
+            destination: formData.destination,
+            distance: parseFloat(formData.distance),
+            date: formData.date
         }
 
         setFormData(updatedRoute)
         console.log(updatedRoute)
-
-    }
-
-    const Card = () => {
-        return (
-            <>
-                <p>From: {formData.starting_point}</p>
-                <p>Destination: {formData.destination}</p>
-                <p>Distance: {formData.distance}</p>
-                <p>Date: {formData.date}</p>
-                {
-                    managing ? 
-                        <>
-                            <button onClick={handleEdit}>Edit Route</button>
-                            <button>Delete Route</button>
-                        </>
-                        :
-                        null
-                }
-                
-            </>
-        )
-    }
-
-    const EditCard = () => {
-        return (
-            <>
-                <form onSubmit={handleEditSubmit} className="Edit-Card">
-                    <input defaultValue={route.starting_point}/>
-                    <input defaultValue={route.destination}/>
-                    <input defaultValue={route.distance}/>
-                    <input defaultValue={route.date}/>
-                    <button>Submit Edit</button>
-                </form>
-            </>
-        )
+        handleUpdateRoute(updatedRoute, route.id)
     }
 
     return (
         <div className="Route-Card">
             {
                 edit ? 
-                    <EditCard /> 
+                    // <EditCard /> 
+                    <>
+                        <form onSubmit={handleEditSubmit} className="Edit-Card">
+                            <input type="text" name="starting_point" onChange={handleFormChange} value={formData.starting_point}/>
+                            <input type="text" name="destination" onChange={handleFormChange} value={formData.destination}/>
+                            <input type="text" name="distance" onChange={handleFormChange} value={formData.distance}/>
+                            <input type="text" name="date" onChange={handleFormChange} value={formData.date}/>
+                            <button type="submit">Submit Edit</button>
+                        </form>
+                    </>
                     :
-                    <Card />
+                    // <Card />
+                    <>
+                        <p>From: {formData.starting_point}</p>
+                        <p>Destination: {formData.destination}</p>
+                        <p>Distance: {formData.distance}</p>
+                        <p>Date: {formData.date}</p>
+                        {
+                            managing ? 
+                                <>
+                                    <button onClick={handleEdit}>Edit Route</button>
+                                    <button>Delete Route</button>
+                                </>
+                                :
+                                null
+                        }
+                        
+                    </>
             }
             
         </div>

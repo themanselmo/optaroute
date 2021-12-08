@@ -14,6 +14,22 @@ const RoutesPage = () => {
     function handleManaging() {
         setManaging(!managing)
     }
+
+    function handleUpdateRoute(updatedRoute, routeID) {
+        console.log("Updating route with: ", updatedRoute)
+        fetch(`/routes/${routeID}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedRoute)
+        })
+        .then(r => r.json())
+        .then(data => console.log("returned route: ", data))
+
+        
+    }
+    
     
     useEffect(() => {
         fetch("/myroutes")
@@ -25,7 +41,13 @@ const RoutesPage = () => {
     
 
     const listRoutes = (routes) => {
-        return routes.map(route => <RouteCard route={route} managing={managing}></RouteCard>)
+        return routes.map(route => 
+            <RouteCard 
+                key={route.id}
+                route={route} 
+                managing={managing}
+                handleUpdateRoute={handleUpdateRoute}
+            ></RouteCard>)
     }
 
     return (

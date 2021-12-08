@@ -22,7 +22,7 @@ class RoutesController < ApplicationController
         if route
             route.update(route_params)
         if route.valid?
-            render json: route,status: :ok
+            render json: route ,status: :ok
         else
             render json:{ error: [route.errors.full_messages]}, status: :unprocessable_entity
         end
