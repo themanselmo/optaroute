@@ -36,7 +36,7 @@ function DaysGraphs(){
       <YAxis />
       <Tooltip />
       <Legend />
-      <Line type="monotone" dataKey="distance" stroke="#8884d8" />
+      <Line type="monotone" dataKey="distance" stroke="#000000" />
       </LineChart>
       </div>
   

@@ -37,7 +37,7 @@
 /* ---------------------------------------- */
 
 #Header {
-  background-color: orange;
+  background-color:#99B0B0;
   text-align: center;
 }
 
@@ -141,4 +141,44 @@
   text-align: center;
   min-height: 40vh;
  
+}
+
+#text1{
+ 
+  text-decoration: none;
+  color: #282c34;
+ 
+}
+
+
+#text2{
+  text-decoration: none;
+  color: black;
+}
+
+#b1{
+  background-color:#FCFAF0; 
+ 
+}
+#b2{
+  background-color:#FCFAF0 ;
+
+}
+
+#buttons{
+  margin-left: 38%;
+}
+
+
+
+#title{
+  /* text-align: center;
+  padding-top: 70px; */
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+  padding-top: 70px; 
+  color:#8A9EA0;
+  font-size: 50px;
+
 }

@@ -44,27 +44,28 @@ const SideNav = ({ setCurrentUser }) => {
         role="presentation"
         onClick={toggleDrawer(anchor, false)}
         onKeyDown={toggleDrawer(anchor, false)}
+        id="box"
         >
-        <List>
+        <List id="list">
             {['Home', 'Routes'].map((text, index) => (
             <Link to={`/${text}`}>
                 <ListItem button key={text}>
                     <ListItemIcon>
                     {index % 2 === 0 ? <CottageIcon /> : <RouteIcon />}
                     </ListItemIcon>
-                    <ListItemText primary={text} />
+                    <ListItemText id="text1" primary={text} />
                 </ListItem>
             </Link>
             ))}
         </List>
         <Divider />
-        <List>
+        <List id="list2">
             {['Logout'].map((text, index) => (
             <ListItem onClick={handleLogout} button key={text}>
                 <ListItemIcon>
                 {index % 2 === 0 ? <LogoutIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText  id="text2" primary={text} />
             </ListItem>
             ))}
         </List>
@@ -72,11 +73,11 @@ const SideNav = ({ setCurrentUser }) => {
     );
     
     return (
-        <div id="Side-Nav">
+        <div >
            
                 <React.Fragment key={'left'}>
                     <Button onClick={toggleDrawer('left', true)}><DehazeIcon /></Button>
-                    <Drawer
+                    <Drawer 
                     anchor={'left'}
                     open={leftState['left']}
                     onClose={toggleDrawer('left', false)}

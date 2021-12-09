@@ -8,9 +8,9 @@ function PageLogin({ setCurrentUser }) {
 
   return (
     <Container >
-      <Row>
+      <Row className="justify-content-md-center">
         <Col xs={6}>
-          <h1>OPTAROUTE</h1>
+          <h1 id="title">OPTAROUTE</h1>
           
           {showLogin ? (
             <>

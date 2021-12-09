@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import AddRouteForm from "./AddRouteForm"
 import RouteCard from "./RouteCard"
+import { Button} from "react-bootstrap";
 
 const RoutesPage = () => {
     const [adding, setAdding] = useState(false)
@@ -66,10 +67,13 @@ const RoutesPage = () => {
 
     return (
         <div id="Routes-Page">
-            <button onClick={handleAdding}>{adding ? "Close" : "Add Route"}</button>
-            <button onClick={handleManaging}>{managing? "Stop Managing" : "Manage Route"}</button>
+            <div id="buttons">
+            <Button id="b1" variant="info"  size="lg" onClick={handleAdding}>{adding ? "Close" : "Add Route"}</Button>
+            <Button id="b2" variant="info" size="lg" onClick={handleManaging}>{managing? "Stop Managing" : "Manage Route"}</Button>
+            </div>
             {adding ? <AddRouteForm addRoute={addRoute} /> : null}
-            <h3>Routes:</h3>
+            <h3 id="routes1">Routes</h3>
+            
             <div id="Routes-List">
                 {listRoutes(userRoutes)}
             </div>

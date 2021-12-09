@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import { Container, Row, Form, Col, Button, Alert} from "react-bootstrap";
 
 const AddRouteForm = ({ addRoute }) => {
     const [formData, setFormData] = useState({
@@ -39,40 +39,55 @@ const AddRouteForm = ({ addRoute }) => {
 
     return (
         <div id="Add-Route-Form">
-            <form onSubmit={handleSubmit}>
-            <label>Starting Point</label>
-            <input 
+            <Container> 
+            <Row className="justify-content-md-center">
+            <Col xs={6}>
+            <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+            <Form.Label>Starting Point</Form.Label>
+            <Form.Control
             id="starting_point"
             name="starting_point"
             value={formData.starting_point}
             onChange={handleChange}
             placeholder="From"/>
-
-            <label>Destination</label>
-            <input 
+            </Form.Group>
+             
+            <Form.Group className="mb-3">
+            <Form.Label>Destination</Form.Label>
+            <Form.Control 
              id="destination"
              name="destination"
              value={formData.destination}
              onChange={handleChange}
              placeholder="Destination"/>
+             </Form.Group>
 
-            <label>Distance</label>
-            <input
+             <Form.Group className="mb-3">
+            <Form.Label>Distance</Form.Label>
+            <Form.Control
              id="distance"
              name="distance"
              value={formData.distance}
              onChange= {handleChange}
             placeholder="Distance"/>
+            </Form.Group>
 
-            <label>Date</label>
-            <input 
+            <Form.Group className="mb-3">
+            <Form.Label>Date</Form.Label>
+            <Form.Control 
              id="date"
              name="date"
              value={formData.date}
              onChange= {handleChange}
             placeholder="Date yyyy-mm-dd"/>
-            <button>Add</button>
-            </form>
+            </Form.Group>
+
+            <Button variant="outline-secondary">Add</Button>
+            </Form>
+            </Col>
+            </Row>
+           </Container>
         </div>
     )
 }

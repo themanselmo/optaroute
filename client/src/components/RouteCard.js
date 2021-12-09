@@ -1,4 +1,5 @@
 import { useState } from "react"
+import {Button} from "react-bootstrap"
 
 const RouteCard = ({ route, managing , handleDelete, handleUpdateRoute}) => {
     const [edit, setEdit] = useState(false)
@@ -72,8 +73,8 @@ const RouteCard = ({ route, managing , handleDelete, handleUpdateRoute}) => {
                         {
                             managing ? 
                                 <>
-                                    <button onClick={handleEdit}>Edit Route</button>
-                                    <button onClick={()=>handleDeleteCard(route)}>Delete Route</button>
+                                    <Button variant="secondary" onClick={handleEdit}>Edit Route</Button>
+                                    <Button variant="secondary" onClick={()=>handleDeleteCard(route)}>Delete Route</Button>
                                 </>
                                 :
                                 null
