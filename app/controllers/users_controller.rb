@@ -25,9 +25,9 @@ class UsersController < ApplicationController
 
     def my_routes
         user = User.find_by(id: session[:user_id])
-        
+        user_routes = user.routes.sort_by(&:date) 
         if user 
-            render json: user.routes 
+            render json: user_routes 
         else
             render json: {error:["Not found"]}, status: :not_found
         end
