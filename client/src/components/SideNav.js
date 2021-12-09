@@ -48,7 +48,7 @@ const SideNav = ({ setCurrentUser }) => {
         >
         <List id="list">
             {['Home', 'Routes'].map((text, index) => (
-            <Link to={`/${text}`}>
+            <Link to={`/${text}`} style={{textDecoration: "none"}}>
                 <ListItem button key={text}>
                     <ListItemIcon>
                     {index % 2 === 0 ? <CottageIcon /> : <RouteIcon />}
@@ -76,7 +76,7 @@ const SideNav = ({ setCurrentUser }) => {
         <div >
            
                 <React.Fragment key={'left'}>
-                    <Button onClick={toggleDrawer('left', true)}><DehazeIcon /></Button>
+                    <Button onClick={toggleDrawer('left', true)}><DehazeIcon id="nav-button"/></Button>
                     <Drawer 
                     anchor={'left'}
                     open={leftState['left']}

@@ -172,10 +172,10 @@ function MonthGraps() {
 
   return (
     <div id="monthchart">
-    <BarChart width={730} height={250} data={distanceformonth(monthssum)} >
+    <BarChart width={730} height={300} data={distanceformonth(monthssum)} >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="month" />
-      <YAxis label={{ value: 'distance km', angle: -90, position: 'insideLeft' }} />
+      <YAxis label={{ value: 'distance miles', angle: -90, position: 'insideLeft' }} />
       <YAxis />
       <Tooltip />
       <Legend />

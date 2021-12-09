@@ -67,12 +67,12 @@ const RoutesPage = () => {
 
     return (
         <div id="Routes-Page">
-            <div id="buttons">
+            <div id="routes-buttons">
             <Button id="b1" variant="info"  size="lg" onClick={handleAdding}>{adding ? "Close" : "Add Route"}</Button>
             <Button id="b2" variant="info" size="lg" onClick={handleManaging}>{managing? "Stop Managing" : "Manage Route"}</Button>
             </div>
             {adding ? <AddRouteForm addRoute={addRoute} /> : null}
-            <h3 id="routes1">Routes</h3>
+            {/* <h3 id="routes1">Routes</h3> */}
             
             <div id="Routes-List">
                 {listRoutes(userRoutes)}

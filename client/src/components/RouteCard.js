@@ -1,5 +1,6 @@
 import { useState } from "react"
 import {Button} from "react-bootstrap"
+import Paper from "@mui/material/Paper";
 
 const RouteCard = ({ route, managing , handleDelete, handleUpdateRoute}) => {
     const [edit, setEdit] = useState(false)
@@ -50,40 +51,51 @@ const RouteCard = ({ route, managing , handleDelete, handleUpdateRoute}) => {
 
 
     return (
-        <div className="Route-Card">
-            {
-                edit ? 
-                    // <EditCard /> 
-                    <>
-                        <form onSubmit={handleEditSubmit} className="Edit-Card">
-                            <input type="text" name="starting_point" onChange={handleFormChange} value={formData.starting_point}/>
-                            <input type="text" name="destination" onChange={handleFormChange} value={formData.destination}/>
-                            <input type="text" name="distance" onChange={handleFormChange} value={formData.distance}/>
-                            <input type="text" name="date" onChange={handleFormChange} value={formData.date}/>
-                            <button type="submit">Submit Edit</button>
-                        </form>
-                    </>
-                    :
-                    // <Card />
-                    <>
-                        <p>From: {formData.starting_point}</p>
-                        <p>Destination: {formData.destination}</p>
-                        <p>Distance: {formData.distance}</p>
-                        <p>Date: {formData.date}</p>
-                        {
-                            managing ? 
-                                <>
-                                    <Button variant="secondary" onClick={handleEdit}>Edit Route</Button>
-                                    <Button variant="secondary" onClick={()=>handleDeleteCard(route)}>Delete Route</Button>
-                                </>
-                                :
-                                null
-                        }
-                        
-                    </>
-            }
-            
-        </div>
+        
+        <Paper 
+            className="Route-Card"
+            elevation={12}
+            sx={{
+                maxWidth: '400px',
+                minWidth: '400px',
+                maxHeight: '325px',
+                minHeight: '230px',
+                margin: '20px',
+			}}
+        >
+        {
+            edit ? 
+                // <EditCard /> 
+                <>
+                    <form onSubmit={handleEditSubmit} className="Edit-Card">
+                        <input type="text" name="starting_point" onChange={handleFormChange} value={formData.starting_point}/>
+                        <input type="text" name="destination" onChange={handleFormChange} value={formData.destination}/>
+                        <input type="text" name="distance" onChange={handleFormChange} value={formData.distance}/>
+                        <input type="text" name="date" onChange={handleFormChange} value={formData.date}/>
+                        <Button className="card-button" variant="secondary" type="submit">Submit Edit</Button>
+                    </form>
+                </>
+                :
+                // <Card />
+                <>
+                    <p>From: {formData.starting_point}</p>
+                    <p>Destination: {formData.destination}</p>
+                    <p>Distance: {formData.distance} miles</p>
+                    <p>Date: {formData.date}</p>
+                    {
+                        managing ? 
+                            <>
+                                <Button className="card-button" variant="secondary" onClick={handleEdit}>Edit Route</Button>
+                                <Button className="card-button" variant="secondary" onClick={()=>handleDeleteCard(route)}>Delete Route</Button>
+                            </>
+                            :
+                            null
+                    }
+                    
+                </>
+        }
+        </Paper>
+       
     )
 }
 

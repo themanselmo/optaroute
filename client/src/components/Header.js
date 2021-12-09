@@ -3,8 +3,8 @@ import SideNav from "./SideNav"
 const Header = ({ setCurrentUser }) => {
 
     return (
-        <div id="Header">
-            <h4>Optiroute</h4>
+        <div id="main-header">
+            <h1>Optiroute</h1>
             <SideNav setCurrentUser={setCurrentUser}/>
         </div>
     )
