@@ -37,13 +37,15 @@
 /* ---------------------------------------- */
 
 #Header {
-  background-color:#99B0B0;
+  background-color: #50655B;
+  color: #96B2B5;
+
   text-align: center;
 }
 
 #Routes-Page {
   margin-top: 20px;
-  
+  text-align: center;
 }
 
 #Routes-List {
@@ -58,7 +60,10 @@
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  background: orange;
+  border-style: groove;
+  border-color: #FAB954
+
+;
   border-radius: 10px;
 }
 
@@ -75,6 +80,7 @@
 #Graph-Page {
   text-align: center;
 }
+
 #login{
   border: 2px solid #d3d3d3;
   border-radius: .5em;
@@ -166,7 +172,7 @@
 }
 
 #buttons{
-  margin-left: 38%;
+  
 }
 
 

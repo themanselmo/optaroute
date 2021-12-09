@@ -179,7 +179,7 @@ function MonthGraps() {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="distance" fill="#8A9EA0" />
+      <Bar dataKey="distance" fill="#FAB954"/>
     </BarChart>
     </div>
   );
