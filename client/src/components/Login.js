@@ -41,7 +41,7 @@ function Login({ setCurrentUser }) {
 
   return (
     <div id="login">
-          <h2>Log In</h2>
+          <h2 id="loginTitle">Log In</h2>
           <Form onSubmit={handleSubmit} id="form">
             <Form.Group >
               <Form.Label>Username:</Form.Label>
@@ -67,7 +67,7 @@ function Login({ setCurrentUser }) {
             </Form.Group>
 
             {error.map((err) => <Alert key={err} id="alert1">{err}</Alert>)}
-            <Button variant="secondary" type="submit">Submit</Button>
+            <Button id="b3" variant="warning" type="submit">Submit</Button>
           </Form>
       </div>
   );

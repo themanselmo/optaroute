@@ -15,17 +15,17 @@ function PageLogin({ setCurrentUser }) {
           {showLogin ? (
             <>
               <Login setCurrentUser={setCurrentUser} />
-              <p>
+              <p id="p1">
                 Don't have an account? &nbsp;
-                <Button variant="secondary" onClick={() => setShowLogin(false)}>Sign Up</Button>
+                <Button  id="b1" variant="warning" onClick={() => setShowLogin(false)}>Sign Up</Button>
               </p>
             </>
           ) : (
             <>
               <Signup setCurrentUser={setCurrentUser} />
-              <p id="p1">
+              <p id="p2">
                 Already have an account? &nbsp;
-                <Button variant="secondary" onClick={() => setShowLogin(true)}>
+                <Button id="b2" variant="warning" onClick={() => setShowLogin(true)}>
                   Log In
                 </Button>
               </p>
