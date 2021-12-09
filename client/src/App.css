@@ -2,16 +2,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Neuton:wght@200;400&display=swap');
 
 #main-header {
+  width: 100%;
   background-color: #50655B;
   color: #96B2B5;
   text-align: center;
   margin: 0;
   padding-top: 25px;
+  font-family: 'Neuton', serif;
+}
+
+#login-header {
+  width: 100%;
+  color: #96B2B5;
+  text-align: center;
+  margin: 0;
+  padding-top: 100px;
+  font-family: 'Neuton', serif;
 }
 
 #main-header h1 {
   font-size: 50px;
-  font-style: oblique;
+  /* font-style: oblique; */
 }
 
 #nav-button {
@@ -69,13 +80,28 @@
   padding-top: 20px;
 }
 
+
+#login-cont {
+  background-image: url(../src/assets/cars-driving.gif);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  /* background-position: center center; */
+  height:1000px;
+}
+
+
 #login{
+  background-color: rgba(255, 255, 255, 0.801);
   border: 2px solid #d3d3d3;
   border-radius: .5em;
   margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 30px;
   padding: 1em;
   text-align: left;
   width: 600px;
@@ -102,10 +128,10 @@
 #signin{
   border: 2px solid #d3d3d3;
   border-radius: .5em;
-  margin-bottom: 1em;
+  /* margin-bottom: 1em;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 100px; */
   padding: 1em;
   text-align: left;
   width: 600px;
@@ -193,9 +219,6 @@
   font-family:'Neuton', serif;
 
 }
-
-
-
 
 #b1{
   background-color: #96B2B5;

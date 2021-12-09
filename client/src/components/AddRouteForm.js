@@ -17,6 +17,7 @@ const AddRouteForm = ({ addRoute }) => {
     }
 
     const handleSubmit = (e) =>{
+          console.log('submitting ')
           e.preventDefault();
           fetch("/routes",{
               method: "POST",
@@ -83,7 +84,7 @@ const AddRouteForm = ({ addRoute }) => {
             placeholder="Date yyyy-mm-dd"/>
             </Form.Group>
 
-            <Button variant="outline-secondary">Add</Button>
+            <Button onClick={handleSubmit}variant="outline-secondary">Add</Button>
             </Form>
             </Col>
             </Row>
