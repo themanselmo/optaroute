@@ -42,7 +42,7 @@ const handleSubmit = (e) => {
 
     return(
         <div id="signin">
-        <h2>Sign Up</h2>
+        <h2 id="signupTitle">Sign Up</h2>
         <Form id="form1"  onSubmit={handleSubmit}>
           <Form.Group >
             <Form.Label>Username:</Form.Label>
@@ -69,7 +69,7 @@ const handleSubmit = (e) => {
   
           {error.map((err) => <Alert id="alert2" key={err}>{err}</Alert>)}
 
-          <Button variant="secondary" type="submit">Submit</Button>
+          <Button id="b4" variant="warning" type="submit">Submit</Button>
         </Form>
        </div>
     )
