@@ -33,6 +33,7 @@ const handleSubmit = (e) => {
             });
         }else{
             res.json().then((errors)=>{
+                console.log("signup",errors.errors)
                 setErrors(errors.errors)
             })
         }

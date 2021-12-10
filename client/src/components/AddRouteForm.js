@@ -8,7 +8,8 @@ const AddRouteForm = ({ addRoute }) => {
         distance: "",
         date: ""
     })
-    
+   const [error, setErrors] = useState([]);
+
     const handleChange = (e) =>{
         setFormData({
             ...formData,
@@ -32,7 +33,8 @@ const AddRouteForm = ({ addRoute }) => {
                   })
               }else{
                 res.json().then((errors) => {
-                  console.error(errors.error)
+                  console.log(errors.error)
+                  setErrors(errors.error)
                 });
             }
           });
@@ -84,6 +86,8 @@ const AddRouteForm = ({ addRoute }) => {
             placeholder="Date yyyy-mm-dd"/>
             </Form.Group>
 
+            {error.map((err) => <Alert key={err} id="alert3">{err}</Alert>)}
+            
             <Button id="b6" onClick={handleSubmit}variant="secondary">Add</Button>
             </Form>
             </Col>

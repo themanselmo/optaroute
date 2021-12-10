@@ -46,7 +46,7 @@ const RoutesPage = () => {
     }
 
     const addRoute = (newRoute)=>{
-        setUserRoutes([...userRoutes, newRoute])
+        setUserRoutes([ newRoute, ...userRoutes])
 
     }
 

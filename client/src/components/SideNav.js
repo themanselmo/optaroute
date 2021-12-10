@@ -46,7 +46,7 @@ const SideNav = ({ setCurrentUser }) => {
         onKeyDown={toggleDrawer(anchor, false)}
         id="box"
         >
-        <List id="list">
+        <List id="list" >
             {['Home', 'Routes'].map((text, index) => (
             <Link to={`/${text}`} style={{textDecoration: "none"}}>
                 <ListItem button key={text}>
