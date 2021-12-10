@@ -68,8 +68,8 @@ const RoutesPage = () => {
     return (
         <div id="Routes-Page">
             <div id="routes-buttons">
-            <Button id="b1" variant="info"  size="lg" onClick={handleAdding}>{adding ? "Close" : "Add Route"}</Button>
-            <Button id="b2" variant="info" size="lg" onClick={handleManaging}>{managing? "Stop Managing" : "Manage Route"}</Button>
+            <Button id="b1" variant="warning"  size="lg" onClick={handleAdding}>{adding ? "Close" : "Add Route"}</Button>
+            <Button id="b2" variant="warning" size="lg" onClick={handleManaging}>{managing? "Stop Managing" : "Manage Route"}</Button>
             </div>
             {adding ? <AddRouteForm addRoute={addRoute} /> : null}
             {/* <h3 id="routes1">Routes</h3> */}

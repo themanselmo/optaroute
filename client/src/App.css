@@ -4,7 +4,7 @@
 #main-header {
   width: 100%;
   background-color: #50655B;
-  color: #96B2B5;
+  color:#96B2B5;
   text-align: center;
   margin: 0;
   padding-top: 25px;
@@ -22,7 +22,7 @@
 
 #main-header h1 {
   font-size: 50px;
-  /* font-style: oblique; */
+  font-style: 'Neuton', serif;
 }
 
 #nav-button {
@@ -51,11 +51,15 @@
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
-  border-style: groove;
-  border-color: #FAB954
-
-;
+  background-color: #ffffff;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),;
+  border-color: #FAB954;
   border-radius: 10px;
+ 
+  border-style: groove;
+  /* border-colƒor: #FAB954 */
+
+ 
 }
 
 .Route-Card:Hover {
@@ -199,7 +203,7 @@
 
 #routes-buttons button{
   margin: 10px;
-  border-color: #FAB954;
+  /* border-color: #FAB954; */
 }
 
 .card-button {
@@ -220,12 +224,15 @@
 
 }
 
-#b1{
+
+
+
+ #b1{
   background-color: #96B2B5;
 }
 #b2{
   background-color: #96B2B5;
-}
+} 
 #b3{
   background-color: #96B2B5;
 }
@@ -241,3 +248,14 @@
   margin-left: 20px;
 }
 
+
+ /* #card{
+  border-color: none;
+  background-color: #ffffff;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),;
+  border-color: #FAB954
+ } */
+
+#b6{
+  background-color:#50655B; 
+}

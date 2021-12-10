@@ -84,7 +84,7 @@ const AddRouteForm = ({ addRoute }) => {
             placeholder="Date yyyy-mm-dd"/>
             </Form.Group>
 
-            <Button onClick={handleSubmit}variant="outline-secondary">Add</Button>
+            <Button id="b6" onClick={handleSubmit}variant="secondary">Add</Button>
             </Form>
             </Col>
             </Row>
