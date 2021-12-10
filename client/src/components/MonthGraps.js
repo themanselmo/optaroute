@@ -152,6 +152,12 @@ function MonthGraps() {
           distance: sum9,
         });
       }
+      if (newarray[key].month === "10") {
+        lastarray.push({
+          month: "October",
+          distance: sum10,
+        });
+      }
       if (newarray[key].month === "11") {
         lastarray.push({
           month: "November",
